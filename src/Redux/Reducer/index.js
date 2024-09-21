@@ -1,8 +1,19 @@
-import { combineReducers } from 'redux';
-import userReducer from './userReducer';
+// // src/Redux/reducers/appReducer.js
+// import { createSlice } from '@reduxjs/toolkit';
 
-const rootReducer = combineReducers({
-  userState: userReducer, 
-});
+// const initialState = {
+//   mode: "light",
+// };
 
-export default rootReducer;
+// const appSlice = createSlice({
+//   name: 'app',
+//   initialState,
+//   reducers: {
+//     changeMode(state, action) {
+//       state.mode = action.payload;
+//     },
+//   },
+// });
+
+// export const { changeMode } = appSlice.actions;
+// export default appSlice.reducer;

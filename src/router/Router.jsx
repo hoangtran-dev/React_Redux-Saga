@@ -8,7 +8,7 @@ import Home from '../compponents/Client/LayoutClient/Home'
 import ProductList from '../compponents/Client/Product/ProductList'
 import Main from '../compponents/Client/Main/Main'
 import ProductDetail from '../compponents/Client/Product/ProductDetail'
-import Resgiter from '../compponents/Clientadmin/Login/Resgiter'
+// import Resgiter from '../compponents/Clientadmin/Login/Resgiter'
 
 const Router = () => {
   return (
@@ -18,7 +18,7 @@ const Router = () => {
           <Route path="productlist" element={<ProductList />}></Route>
           <Route path="home" element={<Home />}></Route>
           <Route path="product/:id" element={<ProductDetail />}></Route>
-          <Route path="register" element={<Resgiter />}></Route>
+          {/* <Route path="register" element={<Resgiter />}></Route> */}
         </Route>
         <Route path="admin" element={<Layoutadmin />}>
           <Route path="product" element={<Product />}></Route>

@@ -1,10 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import instance from '../../../axios'
+import { useSelector } from 'react-redux';
 
 
 const MainContent = () => {
+  const mode = useSelector((state) => state.app.mode);
+
+  useEffect(() => {
+    document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
+  }, [mode]);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['products'],
     queryFn: () => instance.get('/products').then(res => res.data), // Lấy dữ liệu từ res.data
@@ -14,7 +21,7 @@ const MainContent = () => {
   if (isError) return <div>Error: {error.message}</div>
 
   return (
-    <div>
+    <div className={mode === 'dark' ? 'dark-background' : 'light-background'}>
       <div className="w-[1314px] m-auto">
         <div className="w-[100%] my-[62px] flex justify-between">
           <p className="text-[27.38px] font-semibold text-[#1B5A7D]">Popular products</p>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../LayoutClient/header'
+import Header from '../LayoutClient/Header'
 import Menu from '../LayoutClient/Menu'
 import { Outlet } from 'react-router-dom'
 import Footer from '../LayoutClient/footer'

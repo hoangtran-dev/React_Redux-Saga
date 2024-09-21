@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* styles.css */
+body.dark-mode {
+    background-color: #333; /* Màu nền dark */
+    color: #fff; /* Màu chữ light */
+  }
+  
+  body.light-mode {
+    background-color: #fff; /* Màu nền light */
+    color: #000; /* Màu chữ dark */
+  }
+  
+  .dark-background {
+    background-color: #222; /* Màu nền cho component dark */
+  }
+  
+  .light-background {
+    background-color: #eee; /* Màu nền cho component light */
+  }
+  

@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMode } from '../../../Redux/App/app.slide';
 
 const Header = () => {
+  const mode = useSelector((state) => state.app.mode);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
+  }, [mode]);
+
+  const handleModeChange = () => {
+    dispatch(changeMode(mode === 'light' ? 'dark' : 'light'));
+  };
+
   return (
-    <header className="w-full bg-[#003f62] text-white">
+    <header className={`w-full ${mode === 'light' ? 'bg-[#003f62]' : 'bg-black'} text-white`}>
+      <div data-bs-theme={mode}>
+        <Form.Check
+          checked={mode === 'dark'} // Đặt trạng thái cho checkbox
+          onChange={handleModeChange} // Sử dụng hàm để thay đổi chế độ
+          type="switch"
+          id="custom-switch"
+          label={mode === 'light' ? 'Light' : 'Dark'}
+        />
+
+      </div>
+
       <div className="w-[1314px] h-[100px] mx-auto flex items-center">
         <div className="flex w-1/2 text-[14px] justify-between items-center">
           <a className="w-[140px] h-[39px] flex" href="">
@@ -40,7 +65,7 @@ const Header = () => {
                   0
                 </span>
               </div>
-              <span className="ml-[13px]">Sign in</span>
+              <span className="ml-[13px]">Favorites</span>
             </a>
             <a className="flex items-center justify-between" href="">
               <div className="flex items-center justify-between">

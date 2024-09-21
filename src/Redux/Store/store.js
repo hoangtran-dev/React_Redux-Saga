@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import  {thunk} from "redux-thunk"; 
-import rootReducer from "../Reducer"; 
+// src/Redux/store.js
+import { configureStore } from '@reduxjs/toolkit';
+import appReducer from '../App/app.slide'; // Đảm bảo import đúng reducer
 
-const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
-);
+const store = configureStore({
+  reducer: {
+    app: appReducer, // Sử dụng reducer đúng cách
+  },
+});
 
-export default store; 
+export default store;
